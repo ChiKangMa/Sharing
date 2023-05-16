@@ -1,0 +1,62 @@
+Hackmd 助教共筆 https://hackmd.io/o6hWv8mBQsuXYxmLvicogQ?fbclid=IwAR0OnuN1WmLrJiOiXMry_SMMugcMuwFcrljy3_CpZkp14veaBCFb9vvIZ2A
+講師 demo: https://github.com/coolrare/DCT-112005
+
+建立 Standalone Components 架構的 Angular 專案
+ng new demo1 --standalone
+
+建立第一個元件
+1. 將範本 blog-index.html 的 <body> 內容搬到 app.component.html
+2. 將範本 blog-index.html 的 <head> 內容搬到 index.html 的 <head> 內
+3. 將範本的 assets 目錄搬到 src/assets 內
+4. 建立新的 header 元件 ng g c header
+5. 將 app.componen.html 的 header 部分移動到 header.component.html 內
+6. app.component.ts 的 @Component 內的 imports: [] 加入 HeaderComponent ( imports: [CommonModule, HeaderComponent] )
+7. app.component.html 內 header 部分改用 <app-header></app-header> 取代
+
+練習內嵌繫結、屬性繫結
+1. header.component.ts 的 HeaderComponent 類別內加上 title 和 header 欄位
+2. header.component.html 使用內嵌繫結放入自訂內容 {{ title }}
+3. header.component.html 內使用屬性繫結將程式欄位與畫面 DOM 物件欄位綁定 <a [href]="url"> ... </a>
+
+練習事件繫結 ( Event Binding )
+1. 在 app.component.ts 內加上 counter = 0 欄位
+2. 在 app.component.ts 內加上 search() 方法
+
+counter = 0;
+search() {
+  console.log('test');
+  ++this.counter;
+}
+
+3. app.component.html 上繫結 click 事件
+
+(click)="search()"
+
+練習雙向繫結 ( Two-way Binding )
+1. app.component.ts 的 @Component 內在 imports 加上 FormsModule (imports: [...., FormsModule])
+2. app.component.ts 的 AppComponent 類別內，加上 keyword 欄位 (keyword = '')
+3. app.component.html 的 <input type="text" ...> 內，加上雙向繫結 ( [(ngModel)]="keyword" )
+4. 嘗試在畫面上或程式內取得 keyword 最新的資料
+
+練習屬性型指令 (Attribute Directives)
+1. 在 style.css 中加入 highlight CSS 樣式
+2. 練習使用 [class]="{ highlight: isHighlight }"
+3. 練習使用 [style]="{ color: someColor }"
+
+* isHighlight 和 someColor 皆為在程式中定義的欄位名稱
+
+練習使用 ngIf 和 ngFor
+1. ngIf 語法：<div *ngIf="displayHeader"> (displayHeader 會決定這個 <div> 是否要顯示)
+2. ngFor 語法：<div *ngFor="let item of list"> (list 是程式內的清單資料，透過 ngFor 將每筆資料傳到 item，並顯示同樣筆數的 <div>)
+
+練習使用 HttpClient (Paste json to types, Console Ninja)
+1. 在 app.config.ts 中加入 provideHttpClient()
+2. 在 app.component.ts 中注入 HttpClient (httpClient = inject(HttpClient)
+3. 使用 get 方法取得 json 資料，並透過 subscribe 實際將取得的資料傳給自訂的欄位
+this.httpClient.get(...).subscribe(data => { this.articles = data });
+4. 嘗試建立 interface
+  4.1. 複製整個 json 內容
+  4.2. 建立 interface (ng g i article)
+  4.3. article.ts 內 F1 -> Paste JSON as types
+  
+推薦 plugin Console Ninja
