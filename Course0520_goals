@@ -1,8 +1,6 @@
 https://github.com/coolrare/realworld-basic-template?fbclid=IwAR0vwQFwlAicM4eNsKWkdo7yig9xWPW7n-9CqnAw7IHIYZ-TZc0jN99RsOc
-
+Articles json 來源 https://gist.github.com/wellwind/daed1a2057f3d87881763dc5ee9bfa61#file-02-fake-post-data-js
 
 Task 02: 可以先複製過去比較，引用元件，比較html 樣式是否相同，再移除原來的 html 樣式。注意樣式，Angular 引用會多一個 <app-tags>, <app-articles>
 
-
-
-Articles json 來源 https://gist.github.com/wellwind/daed1a2057f3d87881763dc5ee9bfa61#file-02-fake-post-data-js
+Task 07: xxx component.css 的受用範圍就在 component 的樣式內，global 引用的 style.css 是全域的
