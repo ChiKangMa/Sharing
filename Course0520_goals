@@ -6,3 +6,6 @@ Task 02: 可以先複製過去比較，引用元件，比較html 樣式是否相
 Task 07: xxx component.css 的受用範圍就在 component 的樣式內，global 引用的 style.css 是全域的
 [class]="{hilight: isHilight}" <- 屬性多時整個物件定義
 [class.hilight]="isHilight" <- 屬性少時用
+
+[style]="{'font-size': fontSize}
+[style.font-size.px]="fontSize"
