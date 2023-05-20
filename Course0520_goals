@@ -4,3 +4,5 @@ Articles json 來源 https://gist.github.com/wellwind/daed1a2057f3d87881763dc5ee
 Task 02: 可以先複製過去比較，引用元件，比較html 樣式是否相同，再移除原來的 html 樣式。注意樣式，Angular 引用會多一個 <app-tags>, <app-articles>
 
 Task 07: xxx component.css 的受用範圍就在 component 的樣式內，global 引用的 style.css 是全域的
+[class]="{hilight: isHilight}" <- 屬性多時整個物件定義
+[class.hilight]="isHilight" <- 屬性少時用
