@@ -12,4 +12,4 @@ Task 07: xxx component.css 的受用範圍就在 component 的樣式內，global
 
 
 @Input Parent component pass data to children component
-@Output Children provides new event for parent component to bind
+@Output Children provides new event, EventEmitter (事件發射器) for parent component to bind
