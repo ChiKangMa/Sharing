@@ -22,4 +22,4 @@ Task 07: xxx component.css 的受用範圍就在 component 的樣式內，global
 -----------------------------------
 
 
-Service 的設計保持純 function，避免狀態沒有冪等性 (Ideoponent)。需要保有狀態的 Service 獨立出來給多的元件引用。
+Service 的設計保持單純 function，避免狀態沒有冪等性 (Ideoponent)。需要保有狀態的 Service 獨立出來給多的元件引用。
