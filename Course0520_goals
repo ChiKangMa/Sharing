@@ -20,3 +20,6 @@ Task 07: xxx component.css 的受用範圍就在 component 的樣式內，global
 等同
 ([keyword])="keyword"
 -----------------------------------
+
+
+Service 的設計保持純 function，避免狀態沒有冪等性 (Ideoponent)
