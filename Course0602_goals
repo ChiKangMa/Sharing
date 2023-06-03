@@ -1,7 +1,7 @@
 Exercise #1 練習使用範本驅動表單的開發方式
 
 commit 紀錄
-https://github.com/....../a155305e15b9f1ace3423dfa7a5c......
+https://github.com/coolrare/DCT-112005-advanced/commit/a155305e15b9f1ace3423dfa7a5ce259fd29b4be?fbclid=IwAR1Y8gY3XhLn9RBXb9LJQLM0V3IF0Zun_i6H-TMpJRSDqto8ezK0J7mIdlQ
 記得加入 FormsModule
 替所有表單位加上 ngModel 以及 name 屬性
 使用範本參考變數取得 ngModel 物件實體 (#tEmail="ngModel")
@@ -12,7 +12,7 @@ https://github.com/....../a155305e15b9f1ace3423dfa7a5c......
 Exercise #2 練習取得表單狀態以及驗證功能
 
 commit 紀錄
-https://github.com/....../766d07718046b7f33af5fb0172fd......
+https://github.com/coolrare/DCT-112005-advanced/commit/766d07718046b7f33af5fb0172fd23a3d715c9c0?fbclid=IwAR1LRC_4oeLPCrqPKC3EBUeuch1gsUDq7UupytDJdIqxzb7IrfBqGwfcNaM
 嘗試在表單控制項中加入驗證條件，如 required, email, minlength
 在畫面上呈現表單的各種狀態，如 valid, invalid, untouched, touched, dirty, pristine
 使用 hasError 取得指定驗證條件是否未通過，如 tEmail.hasError('required')
