@@ -20,11 +20,92 @@ commit 紀錄 https://github.com/coolrare/DCT-112005-advanced/commit/766d0771804
 在 login.component.ts 中取得表單實體 @ViewChild(NgForm) form: NgForm;
 在 login.component.ts 中取得表單各種狀態，如 this.form?.invalid
 
-Exercise #3
+Exercise #3 練習使用 ngModelGroup
 
 commit 紀錄 https://github.com/coolrare/DCT-112005-advanced/commit/edf734e0d1aeed524bae187a5f91966fdfc15e50
 簡易版範例 
 <div ngModelGroup="profile">
   <input ngModel name="firstName" />
   <input ngModel name="lastName" />
+</div>
+
+Exercise #4 練習使用 Model-driven form 建立表單模型，並與畫面上的 input 等繫結
+
+https://github.com/coolrare/DCT-112005-advanced/commit/e2e8672822bd7f49ae2f49a25a4f0c98b7628a0e?fbclid=IwAR1bqBPXDXT274yfeBwqnbziJ6SFTHrFT7oOUHF8cugrnqJkBbIB2QrtYwU
+import ReactiveFormsModule
+注入 FormBuilder => formBuilder = inject(FormBuilder)
+使用 FormBuilder 建立表單群組 form = formBuilder.group({})
+表單群組內宣告表單控制項物件
+在畫面上使用 <form [formGroup]="form"> 將畫面上的 <form> 標籤和程式中的 form 模型綁定
+使用 <input formControlName="firstName"> 將畫面上的 <input> 標籤和 form 模型下的 firstName 綁定
+也可以使用 <input [formControl]="form.controls.firstName" >，透過「強型別」的方式將表單控制項 (FormControl) 與 <input> 標籤綁定
+在程式中，透過 this.form.value 取得表單模型中的資料模型
+取得表單控制項的方法：this.form.get("firstName")，也可以使用 this.form.controls.firstName 的「強型別」方法取得名為 firstName 的表單控制項
+
+Exercise #5 練習使用 FormGroup 和 FormArray 調整表單的模型結構
+https://github.com/coolrare/DCT-112005-advanced/commit/bde7145261efbb63d30ac9a71042dde45d7c0a67?fbclid=IwAR3F-OS0yudQUpNYCfOubAm3Dlxd7FWjH2SUNkr70cLUoBsXhYmZG7VM8Yo
+
+目前的表單模型參考
+form = this.formBuilder.group({
+  firstName: this.formBuilder.control('Mike'),
+  lastName: this.formBuilder.control('Huang'),
+  email: this.formBuilder.control(''),
+  password: this.formBuilder.group({
+    password: this.formBuilder.control(''),
+    confirmPassword: this.formBuilder.control(''),
+  }),
+  skills: this.formBuilder.array([
+    this.formBuilder.control('HTML'),
+    this.formBuilder.control('CSS'),
+    this.formBuilder.control('JavaScript'),
+    this.formBuilder.control('Angular'),
+  ])
+});
+畫面上綁定巢狀的 FormGroup
+<div class="form-group row" [formGroup]="form.controls.password">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control form-control-user"
+      id="exampleInputPassword"
+      placeholder="Password"
+    />
+  </div>
+  <div class="col-sm-6">
+    <input
+      formControlName="confirmPassword"
+      type="password"
+      class="form-control form-control-user"
+      id="exampleRepeatPassword"
+      placeholder="Repeat Password"
+      />
+    </div>
+</div>
+畫面上綁定 FormArray
+<div class="form-group row" formArrayName="skills">
+  <div
+    class="col-sm-6 mb-3 mb-sm-0"
+    *ngFor="
+      let _ of form.controls.skills.controls;
+      let index = index
+    "
+  >
+    <!-- form.skills[index] -->
+    <input
+      [formControlName]="index"
+      type="text"
+      class="form-control form-control-user"
+    />
+  </div>
+</div>
+另一種寫法
+<div class="form-group row" formArrayName="skills">
+  <div class="col-sm-6 mb-3 mb-sm-0" *ngFor="let control of form.controls.skills.controls">
+    <input
+      [formControl]="control"
+      type="text"
+      class="form-control form-control-user"
+    />
+  </div>
 </div>
