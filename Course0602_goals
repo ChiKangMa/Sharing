@@ -109,3 +109,11 @@ form = this.formBuilder.group({
     />
   </div>
 </div>
+
+Exercise #5 示範在 Reactive Forms 使用內建的驗證器
+
+https://github.com/coolrare/DCT-112005-advanced/commit/6583fc91bd8d11980478005402974cb8a3905ab9
+相關屬性與練習 Template driven forms 一樣，唯一的差別在改成從程式建立好的模型中取的表單控制項  
+ex:  
+  - form.controls.firstName.invalid  
+  - form.controls.password.controls.repeatPassword.hasError('required')
