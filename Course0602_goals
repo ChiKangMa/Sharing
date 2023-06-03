@@ -1,0 +1,23 @@
+Exercise #1 練習使用範本驅動表單的開發方式
+
+commit 紀錄
+https://github.com/....../a155305e15b9f1ace3423dfa7a5c......
+記得加入 FormsModule
+替所有表單位加上 ngModel 以及 name 屬性
+使用範本參考變數取得 ngModel 物件實體 (#tEmail="ngModel")
+嘗試將 ngModel 物件實體的資料印出來 (tEmail.value)
+在 <form> 上使用範本參考變數取得 ngForm 物件實體 (#tForm="ngForm")
+嘗試將 ngForm 表單中的值印出來 (<pre>{{ tForm.value | json }}</pre>)
+
+Exercise #2 練習取得表單狀態以及驗證功能
+
+commit 紀錄
+https://github.com/....../766d07718046b7f33af5fb0172fd......
+嘗試在表單控制項中加入驗證條件，如 required, email, minlength
+在畫面上呈現表單的各種狀態，如 valid, invalid, untouched, touched, dirty, pristine
+使用 hasError 取得指定驗證條件是否未通過，如 tEmail.hasError('required')
+使用 getError 取得驗證器提供的錯誤資訊，如 tPassword.getError('minlength')
+在表單驗證未通過時，表單送出的按鈕不可以按 [disabled]="tForm.invalid"
+嘗試加入 css 改變未通過驗證的欄位樣式 (.ng-invalid:not(form) { border: 1px solid red; })
+在 login.component.ts 中取得表單實體 @ViewChild(NgForm) form: NgForm;
+在 login.component.ts 中取得表單各種狀態，如 this.form?.invalid
